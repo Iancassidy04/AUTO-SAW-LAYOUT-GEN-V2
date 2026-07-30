@@ -9,12 +9,14 @@ lib = gd.Library()
 from pathlib import Path
 import os
 
-from CTRL_IDT_GEN import saw_param # Table Script
+from SINGLE_DEVICE.organize_params import saw_param # Table making
 import numpy as np
 
+GL = 'STEPPED' # Global Label
+
 # Name folder, file and GDS cell
-folder_name = "SAW_GEN_V2_OUTPUT"
-layout_name = "test1.gds"
+folder_name = f"{GL}_SAW_GEN_V2_OUTPUT"
+layout_name = f"{GL}_test1.gds"
 cell_name = "2026_Aug_29"
 
 # SAW device parameters
