@@ -1,17 +1,4 @@
-IDT_PARAMS = {
-    "L": 8,
-    "MR": 0.5,
-    "W": 200,
-    "APO": 2,
-    "BBH": 80,
-    "NF": 100,
-    "INPUT_OUTPUT_SPACING": 80,
-    "STEPPED": True,
-    "M": 5,
-    "ITS": 10,
-    "HSPACE": 1,
-    "VSPACE": 1
-}
+
 
 VAR = 'Wavelength'          # Changing variable
 VAR_RANGE = [2, 8]

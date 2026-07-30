@@ -28,8 +28,6 @@ ITS = 11                    # Number of devices
 HSPACE = 1
 VSPACE = 1
 
-
-
     
 # Device area for seperation
 TOTAL_SAW_WIDTH = ((L * NF) + INPUT_OUTPUT_SPACING) * 2 * HSPACE
