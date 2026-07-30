@@ -9,7 +9,7 @@ lib = gd.Library()
 from pathlib import Path
 import os
 
-from organize_params import saw_param # Table making
+from SINGLE_DEVICE.organize_params import saw_param # Table making
 import numpy as np
 
 
@@ -17,7 +17,7 @@ import numpy as np
 def ITERATE(STEPPED, NAME, ITERATION, c, 
             L, MR, W, APO, BBH, NF, 
             INPUT_OUTPUT_SPACING, GL, M):
-
+    
     F_WIDTH = MR*(L/2)  # Finger width
     GAP = L/2 - F_WIDTH # Finger Gap
     BBL = L             # Bus bar length per finger pair

@@ -1,8 +1,15 @@
 # Ian Cassidy
 # 2026 AUG 29
 # Choose/Alter Variable Parameters for Iterative Device Design (ARRAY_LAYOUT_DES.py)
+from datetime import date
 
-NAME = '2026_AUG_30'         # Name of ARRAY
+# Returns the current local date (e.g., YYYY-MM-DD)
+
+PROJECT = "SAWGENV2_SOFTWARE"
+# PROJECT = "BORGER"
+# PROJECT = "INSE2"
+
+NAME = f'{PROJECT}_{date.today()}'
 
 # Variable Designation
 VAR = 'Wavelength'      # Var_map Label
@@ -16,7 +23,7 @@ LIST OF DESIGN PARAMETERS FOR LAYOUT DESIGN VARIABLE MAP
 =======================================================
 
 'Wavelength'
-'Metalization Ratio'
+'Metallization Ratio'
 'Finger Length'
 'Apodization'
 'Bus Bar Height'
@@ -66,11 +73,27 @@ IDT_PARAMS = {
     "M": 5,
     "HSPACE": 1,
     "VSPACE": 1,
-    "NAME" : "PARAM_TEST",
+    "NAME" : NAME,
     "STEP" : STEP_SIZE,
     "ITS" : DEVICES
 }
+ 
+
+# Check Intended Layout Usage
+while True:
+    print("ARE YOU PLANNING ON ACTUALLY USING THIS LAYOUT")
+    USE_PLAN = input("Would you like to continue? (y/n): ")
+
+    if USE_PLAN.strip().lower() in ['y', 'yes']:    # Strips spaces and cases
+        USE_DECLARATION = True                      # File saved to LAYOUTS
+        break                                       # Exits loop
+
+    elif USE_PLAN in ['n', 'no', ' ']:              # Space works as 'no'
+        USE_DECLARATION = False                     # File saved to JUNK
+        break                                       # Exits loop
+    else:
+        continue
 
 # Pass variable information to layout design
 from ARRAY_LAYOUT_DES import REMOTE_VAR_CTRL
-REMOTE_VAR_CTRL(VAR, VAR_RANGE, IDT_PARAMS)
+REMOTE_VAR_CTRL(VAR, VAR_RANGE, IDT_PARAMS, USE_DECLARATION)

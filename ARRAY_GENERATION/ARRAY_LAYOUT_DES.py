@@ -13,19 +13,26 @@ import os
 import numpy as np
 lib = gd.Library()
 
-def REMOTE_VAR_CTRL(VAR, VAL, IDT_PARAMS):
+def REMOTE_VAR_CTRL(VAR, VAL, IDT_PARAMS, USE_DECLARATION):
     global L, W, APO, BBH, NF, INPUT_OUTPUT_SPACING, STEPPED, HSPACE, VSPACE, NAME, STEP, ITS
 
     # Move variable labeling from ARRAY_CTRL
     var_map = {
     'Wavelength': 'L',
-    'Metalization Ratio': 'MR',
+    'Metallization Ratio': 'MR',
     'Finger Length': 'W',
     'Apodization': 'APO',
     'Bus Bar Height': 'BBH',
     'Number of Fingers': 'NF',
     'Input Output Spacing': 'INPUT_OUTPUT_SPACING',
     'Harmonic Mode': 'M',
+    'STEPPED' : 'STEPPED',
+    'Desired Harmonic Mode' : 'M',
+    'Relative Horizontal Distance Between Devices' : 'HSPACE',
+    'Relative Vertical Distance Between Devices' : 'VSPACE',
+    'File Name' : 'NAME',
+    'Incremental Step Size' : 'STEP',
+    'Number of Devices' : 'ITS'
     }
 
     IDT_PARAMS[var_map[VAR]] = max(VAL) # Assign max value for device seperation calc
@@ -44,8 +51,13 @@ def REMOTE_VAR_CTRL(VAR, VAL, IDT_PARAMS):
         GL = 'STANDARD_ARRAY'
 
     # Name folder, file and GDS cell
-    folder_name = f"{NAME}_{GL}"
+    folder_name = f"{NAME}"
     layout_name = f"{VAR}_{min(VAL)}_to_{max(VAL)}_{GL}.gds"
+
+    if USE_DECLARATION:
+        use_folder = 'LAYOUTS'
+    else:
+        use_folder = 'TEST and JUNK'
 
     ROWS = int(np.sqrt(ITS))    # Predict ROW count
     COLS = int(ITS / ROWS)      # Set COL count
@@ -74,9 +86,20 @@ def REMOTE_VAR_CTRL(VAR, VAL, IDT_PARAMS):
                 ii +=1  # Increase run count
 
     script_dir = Path(__file__).parent                  # Find active directory
-    folder_path = script_dir / folder_name 
+    folder_path = script_dir / use_folder / folder_name 
 
     os.makedirs(folder_path, exist_ok=True)             # Create folder if it doesn't exist
     filename = os.path.join(folder_path, layout_name)   # Create path
     lib.write_gds(filename)
 
+    # Save parameter text file
+    txt_path = folder_path / f"{layout_name}_device_info.txt"
+
+    width = max(len(name) for name in var_map)
+
+    with open(txt_path, "w") as f:
+        f.write("Device Parameters\n")
+        f.write("-" * (width + 20) + "\n\n")
+
+        for display_name, key in var_map.items():
+            f.write(f"{display_name:<{width}} : {IDT_PARAMS[key]}\n\n")

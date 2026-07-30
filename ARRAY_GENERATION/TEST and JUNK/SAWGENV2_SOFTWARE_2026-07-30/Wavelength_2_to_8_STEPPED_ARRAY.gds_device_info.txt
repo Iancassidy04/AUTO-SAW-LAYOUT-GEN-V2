@@ -1,0 +1,33 @@
+Device Parameters
+----------------------------------------------------------------
+
+Wavelength                                   : 8.0
+
+Metallization Ratio                          : 0.5
+
+Finger Length                                : 200
+
+Apodization                                  : 2
+
+Bus Bar Height                               : 80
+
+Number of Fingers                            : 100
+
+Input Output Spacing                         : 80
+
+Harmonic Mode                                : 5
+
+STEPPED                                      : True
+
+Desired Harmonic Mode                        : 5
+
+Relative Horizontal Distance Between Devices : 1
+
+Relative Vertical Distance Between Devices   : 1
+
+File Name                                    : SAWGENV2_SOFTWARE_2026-07-30
+
+Incremental Step Size                        : 0.25
+
+Number of Devices                            : 25
+
