@@ -16,7 +16,7 @@ VAR = 'Wavelength'      # Var_map Label
 LOW = 2                 # Start Value (Disable LOW or HIGH with "None" for range_cal)
 HIGH = 8                # Stop Value
 STEP_SIZE = 0.25
-# ITS = 24              # ONLY SET FOR range_cal
+ITS = 24              # ONLY SET FOR range_cal
 
 '''
 LIST OF DESIGN PARAMETERS FOR LAYOUT DESIGN VARIABLE MAP
