@@ -13,10 +13,10 @@ NAME = f'{PROJECT}_{date.today()}'
 
 # Variable Designation
 VAR = 'Wavelength'      # Var_map Label
-LOW = 2                 # Start Value (Disable LOW or HIGH with "None" for range_cal)
-HIGH = 8                # Stop Value
-STEP_SIZE = 0.25
-ITS = 24              # ONLY SET FOR range_cal
+LOW = 20                 # Start Value (Disable LOW or HIGH with "None" for range_cal)
+HIGH = 21                # Stop Value
+STEP_SIZE = 1
+ITS = 1              # ONLY SET FOR range_cal
 
 '''
 LIST OF DESIGN PARAMETERS FOR LAYOUT DESIGN VARIABLE MAP
@@ -48,12 +48,12 @@ def range_cal(LOW, HIGH):
 # Calculate bound if missing
 if LOW == None or HIGH == None:
     LOW, HIGH = range_cal(LOW, HIGH)
+    DEVICES = ITS
 
 else:
     DEVICES = ITS_cal(LOW, HIGH)
 
 VAR_RANGE = [LOW, HIGH] # Save bounds
-
 # Print iterative data
 print(f'Iterations: {DEVICES - 1}')
 print(f'Step Size: {STEP_SIZE}')
@@ -75,10 +75,15 @@ IDT_PARAMS = {
     "VSPACE": 1,
     "NAME" : NAME,
     "STEP" : STEP_SIZE,
-    "ITS" : DEVICES
+    "ITS" : DEVICES,
+    "PW": 80,
+    "PH": 80,
+    "SEP": 100,
+    "TYPE": 'GSG'
 }
 
- 
+
+
 
 # Check Intended Layout Usage
 while True:
