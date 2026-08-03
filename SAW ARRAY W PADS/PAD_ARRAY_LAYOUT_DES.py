@@ -4,7 +4,7 @@
 
 # GDS LAYOUT LIBRARIES
 import gdstk as gd
-from PAD_TEST_SAW_GEN import ITERATE # Python file
+from PAD_ARRAY_GEN import ITERATE # Python file
 
 # Operating system / file libraries
 from pathlib import Path

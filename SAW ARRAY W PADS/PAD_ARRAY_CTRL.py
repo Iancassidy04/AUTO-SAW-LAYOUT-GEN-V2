@@ -102,5 +102,5 @@ while True:
         continue
 
 # Pass variable information to layout design
-from PAD_TEST_LAYOUT_DES import REMOTE_VAR_CTRL
+from PAD_ARRAY_LAYOUT_DES import REMOTE_VAR_CTRL
 REMOTE_VAR_CTRL(VAR, VAR_RANGE, IDT_PARAMS, USE_DECLARATION)
