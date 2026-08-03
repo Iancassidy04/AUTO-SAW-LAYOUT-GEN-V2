@@ -5,11 +5,14 @@
 SAWGEN2 is a Python-based Surface Acoustic Wave (SAW) device layout generation tool.
 
 The generator is designed for the generation of:
+
 - Single SAW devices
 - SAW device arrays
 - Parameter sweeps over device dimensions
 
-Generated layouts are compatible with standard IC layout tools such as KLayout
+Generated layouts are compatible with standard IC layout tools such as KLayout.
+
+---
 
 # Features
 
@@ -17,6 +20,7 @@ Generated layouts are compatible with standard IC layout tools such as KLayout
 
 The device geometry can be controlled through a parameter dictionary:
 
+```python
 IDT_PARAMS = {
     "L": 8,
     "MR": 0.5,
@@ -26,9 +30,13 @@ IDT_PARAMS = {
     "NF": 100,
     ...
 }
+```
 
+---
 
 # Repository Structure
+
+```
 ├── SAWGEN2_FULL.py
 │   └── Main Python layout generation script
 │
@@ -52,29 +60,46 @@ IDT_PARAMS = {
 │
 └── OLD FILES FOR REFERENCE
     └── Previous versions and archived files
+```
 
+---
 
 # Installation
 
 ## Requirements
 
 Python version:
+
+```
 Python >= 3.10
+```
 
 Required packages:
+
+```
 numpy
 gdstk
 tkinter
+```
+
+---
 
 # Usage
-Run the generator with SAWGEN2_FULL.py
+
+Run the generator with:
+
+```
+python SAWGEN2_FULL.py
+```
 
 A GUI will open for the user to:
+
 1. Modify geometry values
 2. Select sweep variable
 3. Set step size and number of iterations
 4. Save and run
 
+---
 
 # Parameter Sweeps
 
@@ -88,6 +113,7 @@ Supported sweep variables:
 - Number of Fingers
 - Input/Output spacing
 
+---
 
 # Generated Layouts
 
@@ -99,22 +125,28 @@ The generator creates:
 - txt file with important layout information
 
 Output format:
-GDSII (.gds)
 
+```
+GDSII (.gds)
+```
+
+---
 
 # Example Device
 
 <img width="905" height="957" alt="image" src="https://github.com/user-attachments/assets/f84dc191-0f9e-470f-8496-9440f5495dca" />
 
+---
 
 # Author
 
 **Ian Cassidy**
 
-Electrical Engineering Masters Student
+Electrical Engineering Masters Student  
 University of Vermont
 
 Research focus:
+
 - Surface Acoustic Wave devices
 - Wireless sensing
 - Piezoelectric resonator fabrication
