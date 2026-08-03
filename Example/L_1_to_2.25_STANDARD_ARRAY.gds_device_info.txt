@@ -1,7 +1,9 @@
 Device Parameters
 ----------------------------------------------------------------
 
-Wavelength                                   : 8.0
+File Name                                    : Example
+
+Wavelength                                   : 2.0
 
 Metallization Ratio                          : 0.5
 
@@ -15,9 +17,7 @@ Number of Fingers                            : 100
 
 Input Output Spacing                         : 80
 
-Harmonic Mode                                : 5
-
-STEPPED                                      : True
+STEPPED                                      : False
 
 Desired Harmonic Mode                        : 5
 
@@ -25,9 +25,21 @@ Relative Horizontal Distance Between Devices : 1
 
 Relative Vertical Distance Between Devices   : 1
 
-File Name                                    : SAWGENV2_SOFTWARE_2026-07-31
-
 Incremental Step Size                        : 0.25
 
-Number of Devices                            : 25
+Number of Devices                            : 5
+
+Start Value                                  : 1
+
+Pad Width                                    : 80
+
+Pad Height                                   : 80
+
+Pad Separation                               : 100
+
+Pad Type                                     : GSG
+
+Distance from Pads to Bus Bar                : 80
+
+Distance Ground Travels from IDT             : 1500
 

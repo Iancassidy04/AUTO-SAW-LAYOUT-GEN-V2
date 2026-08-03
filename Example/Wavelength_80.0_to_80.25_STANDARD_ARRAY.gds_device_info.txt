@@ -1,0 +1,45 @@
+Device Parameters
+----------------------------------------------------------------
+
+File Name                                    : Example
+
+Wavelength                                   : 80
+
+Metallization Ratio                          : 0.5
+
+Finger Length                                : 2000
+
+Apodization                                  : 20
+
+Bus Bar Height                               : 80
+
+Number of Fingers                            : 100
+
+Input Output Spacing                         : 80
+
+STEPPED                                      : False
+
+Desired Harmonic Mode                        : 5
+
+Relative Horizontal Distance Between Devices : 1
+
+Relative Vertical Distance Between Devices   : 1
+
+Incremental Step Size                        : 0.25
+
+Number of Devices                            : 1
+
+Start Value                                  : 80.0
+
+Pad Width                                    : 80
+
+Pad Height                                   : 80
+
+Pad Separation                               : 100
+
+Pad Type                                     : GSG
+
+Distance from Pads to Bus Bar                : 80
+
+Distance Ground Travels from IDT             : 1500
+

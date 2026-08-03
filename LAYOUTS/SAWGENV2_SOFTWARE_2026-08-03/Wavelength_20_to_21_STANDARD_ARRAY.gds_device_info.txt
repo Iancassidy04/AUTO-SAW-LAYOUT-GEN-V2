@@ -17,7 +17,7 @@ Input Output Spacing                         : 80
 
 Harmonic Mode                                : 5
 
-STEPPED                                      : True
+STEPPED                                      : False
 
 Desired Harmonic Mode                        : 5
 
@@ -25,7 +25,7 @@ Relative Horizontal Distance Between Devices : 1
 
 Relative Vertical Distance Between Devices   : 1
 
-File Name                                    : SAWGENV2_SOFTWARE_2026-07-31
+File Name                                    : SAWGENV2_SOFTWARE_2026-08-03
 
 Incremental Step Size                        : 1
 

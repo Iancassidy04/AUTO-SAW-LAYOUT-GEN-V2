@@ -1,7 +1,7 @@
 Device Parameters
 ----------------------------------------------------------------
 
-Wavelength                                   : 2.0
+Wavelength                                   : 21
 
 Metallization Ratio                          : 0.5
 
@@ -25,9 +25,9 @@ Relative Horizontal Distance Between Devices : 1
 
 Relative Vertical Distance Between Devices   : 1
 
-File Name                                    : SAWGENV2_SOFTWARE_2026-07-31
+File Name                                    : SAWGENV2_SOFTWARE_2026-08-03
 
-Incremental Step Size                        : 0.25
+Incremental Step Size                        : 1
 
-Number of Devices                            : 1
+Number of Devices                            : 2
 
