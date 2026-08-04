@@ -4,7 +4,7 @@
 
 SAWGEN2 is a Python-based Surface Acoustic Wave (SAW) device layout generation tool.
 
-The generator is designed for the generation of:
+The generator is designed to create:
 
 - Single SAW devices
 - SAW device arrays
