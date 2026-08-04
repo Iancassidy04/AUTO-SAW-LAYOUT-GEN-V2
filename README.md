@@ -12,27 +12,7 @@ The generator is designed for the generation of:
 
 Generated layouts are compatible with standard IC layout tools such as KLayout.
 
----
 
-# Features
-
-## Parameterized Device Generation
-
-The device geometry can be controlled through a parameter dictionary:
-
-```python
-IDT_PARAMS = {
-    "L": 8,
-    "MR": 0.5,
-    "W": 200,
-    "APO": 2,
-    "BBH": 80,
-    "NF": 100,
-    ...
-}
-```
-
----
 
 # Repository Structure
 
@@ -98,6 +78,28 @@ A GUI will open for the user to:
 2. Select sweep variable
 3. Set step size and number of iterations
 4. Save and run
+
+---
+
+# Features
+
+## Parameterized Device Generation
+
+The device geometry can be controlled through a parameter dictionary:
+
+```python
+IDT_PARAMS = {
+    "L": 8,
+    "MR": 0.5,
+    "W": 200,
+    "APO": 2,
+    "BBH": 80,
+    "NF": 100,
+    ...
+}
+```
+
+---
 
 ---
 
