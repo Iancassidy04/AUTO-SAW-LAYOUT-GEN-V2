@@ -47,9 +47,11 @@ APER = W - 2*APO    # Total finger overlap
 TH = 100            # Metal thickness (nm)
 
 # Pad Geometry
-PW = 80     # Width of pad
-PH = PW
-SEP = 100   # Separation between pad centers
+PW = 80             # Width of pad
+PH = PW             # Height of pad
+SEP = 100           # Separation between pad centers
+GND_DIST = 1500     # Distance GND connect moves (HORZ) away from SAW
+PAD_BB_SEP = 80     # Distance from pads to nearest BB
 
 while PW > BBH + APO:
     print("Ground connection shorts to signal finger, increase bus bar height or enter '0' to change pad height.")
@@ -115,10 +117,9 @@ def save_file():
 def offset(p, dx=0, dy=0):
     return (p[0] + dx, p[1] + dy)
 
-GND_DIST = 1500                                             # Distance GND connect moves (HORZ) away from SAW
-PAD_BB_SEP = 80                                             # Distance from pads to nearest BB
 def GEN_GSG(INV):
-    PW_M = PW * INV # INVERSION FOR MIRRORING
+    # INVERSION FOR MIRRORING
+    PW_M = PW * INV
     PH_M = PH * INV
     SEP_M = SEP * INV
     PAD_BB_M = PAD_BB_SEP * INV
@@ -128,21 +129,19 @@ def GEN_GSG(INV):
     CORNER = (((TOTAL_BBL) + INPUT_OUTPUT_SPACING) * (INV < 0),     # Starting Point for Pads
         HEIGHT * (INV > 0))                                         # Top left for Input, bottom right for output
 
-
-
-    CORNER_EXT = offset(CORNER, -INV * GND_DIST, PW_M)                            # Point that BB extends to (HORZ) for GND connect
+    CORNER_EXT = offset(CORNER, -INV * GND_DIST, PW_M)                      # Point that BB extends to (HORZ) for GND connect
     c.add(gd.rectangle(CORNER, CORNER_EXT).translate(0, PAD_BB_M))          # Create PAD Extension for GND connect
-    c.add(gd.rectangle(CORNER, CORNER_EXT).translate(0, -INV * HEIGHT))             # Create BB Extension for GND connect
+    c.add(gd.rectangle(CORNER, CORNER_EXT).translate(0, -INV * HEIGHT))     # Create BB Extension for GND connect
 
     for i in range(3):
-        PH_M = PH_M * (1 + (i != 1))
+        PH_M = PH_M * (1 + (i != 1))        # Extend height for first and third pad
 
         c.add(gd.rectangle(CORNER, offset(CORNER, PW_M, PH_M))
-                                        .translate(i * SEP_M, PAD_BB_M))
+                                        .translate(i * SEP_M, PAD_BB_M))    # Create PADs
 
-        PH_M = PH * INV
+        PH_M = PH * INV # Reset height
         
-    c.add(gd.rectangle(CORNER, offset(CORNER, 2 * SEP * INV + PW_M, PH_M))      # GND - GND Connector
+    c.add(gd.rectangle(CORNER, offset(CORNER, 2 * SEP_M + PW_M, PH_M))      # GND - GND Connector
                                         .translate(0, 3 * PH_M))
       
     # Connect both HORZ GND extensions
